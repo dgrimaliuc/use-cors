@@ -28,7 +28,9 @@
     "server.js"
   ],
   "dependencies": {
+    "express": "^4.19.2",
     "http-proxy": "1.11.1",
+    "nodemon": "^3.1.0",
     "proxy-from-env": "0.0.1"
   },
   "devDependencies": {
@@ -41,9 +43,13 @@
     "supertest": "^2.0.1"
   },
   "scripts": {
+    "start": "node index.js",
     "lint": "eslint .",
     "test": "mocha ./test/test*.js --reporter spec",
-    "test-coverage": "istanbul cover ./node_modules/.bin/_mocha -- test/test.js test/test-ratelimit.js --reporter spec"
+    "vl:start": "vercel dev",
+    "dev:start": "nodemon index.js",
+    "test-coverage": "istanbul cover ./node_modules/.bin/_mocha -- test/test.js test/test-ratelimit.js --reporter spec",
+    "build": "echo 'No build step required for Node.js server'"
   },
   "engines": {
     "node": ">=0.10.0"
