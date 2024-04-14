@@ -28,7 +28,11 @@
     "server.js"
   ],
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
     "http-proxy": "1.11.1",
+    "net": "^1.0.2",
+    "nodemon": "^3.1.0",
     "proxy-from-env": "0.0.1"
   },
   "devDependencies": {
@@ -42,8 +46,10 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "test": "mocha ./test/test*.js --reporter spec",
-    "test-coverage": "istanbul cover ./node_modules/.bin/_mocha -- test/test.js test/test-ratelimit.js --reporter spec"
+    "deploy": "vercel --prod",
+    "vl:start": "vercel dev",
+    "dev:start": "nodemon index.js",
+    "build": "echo 'No build step required for Node.js server'"
   },
   "engines": {
     "node": ">=0.10.0"
