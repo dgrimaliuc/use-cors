@@ -2,8 +2,8 @@ const express = require('express');
 
 var app = express();
 var cors = require('cors');
-const { isValidHostName, withCORS, getHandler } = require('./lib/utils');
-app.use(express.json());
+const { getCorsHandler, getStreamHandler } = require('./lib/utils');
+app.use(express.urlencoded());
 
 app.use(
   cors({
@@ -14,8 +14,12 @@ app.use(
   })
 );
 
-app.post('/**', async (req, res) => {
-  getHandler(req, res);
+app.post('/', async (req, res) => {
+  await getCorsHandler(req, res);
+});
+
+app.post('/stream', async (req, res) => {
+  await getStreamHandler(req, res);
 });
 
 var PORT = process.env.PORT || 8989;
