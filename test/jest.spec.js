@@ -36,3 +36,8 @@ test('Hhdrezka test', async () => {
   );
   console.log(await re.json());
 });
+
+test('jest test', async () => {
+  const r = await fetch('https://localhost:8989');
+  console.log(await r.text());
+});
