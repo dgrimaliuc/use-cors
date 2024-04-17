@@ -1,17 +1,10 @@
 import express from 'express';
-import qs from 'qs';
 import { getCorsHandler, getStreamHandler } from './lib/handlers.js';
 import { proxyRequest, removeUnusedHeaders } from './lib/utils.js';
 import cors from 'cors';
 
 var app = express();
-// app.use(bodyParser.urlencoded({ extended: true }));
-app.use((req, res, next) => {
-  if (req.is('application/x-www-form-urlencoded')) {
-    req.body = qs.parse(req.body);
-  }
-  next();
-});
+app.use(express.json());
 
 app.use(
   cors({
