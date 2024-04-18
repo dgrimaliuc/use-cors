@@ -2,7 +2,6 @@ const express = require('express');
 const { getCorsHandler, getStreamHandler } = require('../lib/handlers.js');
 const { proxyRequest, removeUnusedHeaders } = require('../lib/utils.js');
 const cors = require('cors');
-const { headersToRemove } = require('../lib/data.js');
 
 const router = express.Router();
 
@@ -21,7 +20,6 @@ router.post(
     getCorsHandler(req, res, next);
   },
   async (req, res) => {
-    removeUnusedHeaders(req, headersToRemove);
     await proxyRequest(req, res);
   }
 );
@@ -32,7 +30,6 @@ router.post(
     getStreamHandler(req, res, next);
   },
   async (req, res) => {
-    removeUnusedHeaders(req, headersToRemove);
     console.log('req.headers', req.headers);
     const headers = {
       'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
