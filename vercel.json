@@ -1,16 +1,10 @@
 {
   "version": 2,
-  "buildCommand": "echo 'No build step required for Node.js server'",
   "builds": [
     {
-      "src": "**.js",
+      "src": "index.js",
       "use": "@vercel/node"
     }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "enable-cors.js"
-    }
-  ]
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }

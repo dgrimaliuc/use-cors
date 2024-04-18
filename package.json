@@ -1,7 +1,6 @@
 {
   "name": "use-cors",
-  "type": "module",
-  "version": "0.4.4",
+  "version": "0.0.1",
   "description": "Use Cors is a reverse proxy which adds CORS headers to the proxied request. Request URL is taken from the path",
   "author": "denis.grimaliuc@gmail.com",
   "dependencies": {
@@ -15,7 +14,6 @@
     "ts-jest": "^29.1.2"
   },
   "devDependencies": {
-    "coveralls": "^2.11.6",
     "eslint": "^2.2.0"
   },
   "scripts": {
@@ -24,8 +22,5 @@
     "vl:start": "vercel dev",
     "dev:start": "nodemon index.js",
     "build": "echo 'No build step required for Node.js server'"
-  },
-  "engines": {
-    "node": ">=0.10.0"
   }
 }

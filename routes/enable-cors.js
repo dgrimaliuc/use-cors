@@ -1,14 +1,12 @@
-import express from 'express';
-import { getCorsHandler, getStreamHandler } from './lib/handlers.js';
-import { proxyRequest, removeUnusedHeaders } from './lib/utils.js';
-import cors from 'cors';
+const express = require('express');
+const { getCorsHandler, getStreamHandler } = require('../lib/handlers.js');
+const { proxyRequest, removeUnusedHeaders } = require('../lib/utils.js');
+const cors = require('cors');
+const { headersToRemove } = require('../lib/data.js');
 
-var app = express();
+const router = express.Router();
 
-// app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-app.use(
+router.use(
   cors({
     origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
@@ -17,24 +15,24 @@ app.use(
   })
 );
 
-app.post(
+router.post(
   '/',
   (req, res, next) => {
     getCorsHandler(req, res, next);
   },
   async (req, res) => {
-    removeUnusedHeaders(req);
+    removeUnusedHeaders(req, headersToRemove);
     await proxyRequest(req, res);
   }
 );
 
-app.post(
+router.post(
   '/stream',
   (req, res, next) => {
     getStreamHandler(req, res, next);
   },
   async (req, res) => {
-    removeUnusedHeaders(req);
+    removeUnusedHeaders(req, headersToRemove);
     console.log('req.headers', req.headers);
     const headers = {
       'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -58,10 +56,4 @@ app.post(
   }
 );
 
-var PORT = process.env.PORT || 8989;
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
-
-export default app;
+module.exports = router;
