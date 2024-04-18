@@ -22,7 +22,6 @@ router.post(
   },
   async (req, res) => {
     removeUnusedHeaders(req, headersToRemove);
-    console.log('req.body', req.body);
     await proxyRequest(req, res);
   }
 );
