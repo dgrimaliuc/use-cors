@@ -4,7 +4,9 @@ import { proxyRequest, removeUnusedHeaders } from './lib/utils.js';
 import cors from 'cors';
 
 var app = express();
-app.use(express.json());
+
+// app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cors({
