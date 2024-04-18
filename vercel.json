@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "regions": ["fra1"],
+  "regions": ["sin1"],
   "builds": [
     {
       "src": "index.js",
