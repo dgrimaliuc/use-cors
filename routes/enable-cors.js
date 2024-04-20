@@ -1,6 +1,6 @@
 const express = require('express');
 const { getCorsHandler, getStreamHandler } = require('../lib/handlers.js');
-const { proxyRequest, removeUnusedHeaders } = require('../lib/utils.js');
+const { proxyRequest } = require('../lib/utils.js');
 const cors = require('cors');
 
 const router = express.Router();
@@ -30,7 +30,6 @@ router.post(
     getStreamHandler(req, res, next);
   },
   async (req, res) => {
-    console.log('req.headers', req.headers);
     const headers = {
       'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
       Host: 'hdrezka.ag',

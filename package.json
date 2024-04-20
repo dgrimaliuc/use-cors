@@ -19,7 +19,7 @@
   "scripts": {
     "lint": "eslint .",
     "deploy": "vercel --prod",
-    "vl:start": "vercel dev",
+    "start": "vercel dev --listen 3100",
     "dev:start": "nodemon index.js",
     "build": "echo 'No build step required for Node.js server'"
   }
