@@ -1,57 +1,26 @@
 {
-  "name": "cors-anywhere",
-  "version": "0.4.4",
-  "description": "CORS Anywhere is a reverse proxy which adds CORS headers to the proxied request. Request URL is taken from the path",
-  "license": "MIT",
-  "author": "Rob Wu <rob@robwu.nl>",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Rob--W/cors-anywhere.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Rob--W/cors-anywhere/issues/",
-    "email": "rob@robwu.nl"
-  },
-  "keywords": [
-    "cors",
-    "cross-domain",
-    "http-proxy",
-    "proxy",
-    "heroku"
-  ],
-  "main": "./lib/cors-anywhere.js",
-  "files": [
-    "lib/",
-    "test/",
-    "Procfile",
-    "demo.html",
-    "server.js"
-  ],
+  "name": "use-cors",
+  "version": "0.0.1",
+  "description": "Use Cors is a reverse proxy which adds CORS headers to the proxied request. Request URL is taken from the path",
+  "author": "denis.grimaliuc@gmail.com",
   "dependencies": {
+    "babel-jest": "^29.7.0",
     "cors": "^2.8.5",
     "express": "^4.19.2",
-    "http-proxy": "1.11.1",
+    "jest": "^29.7.0",
     "net": "^1.0.2",
     "nodemon": "^3.1.0",
-    "proxy-from-env": "0.0.1"
+    "save": "^2.9.0",
+    "ts-jest": "^29.1.2"
   },
   "devDependencies": {
-    "coveralls": "^2.11.6",
-    "eslint": "^2.2.0",
-    "istanbul": "^0.4.2",
-    "lolex": "^1.5.0",
-    "mocha": "^3.4.2",
-    "nock": "^8.2.1",
-    "supertest": "^2.0.1"
+    "eslint": "^2.2.0"
   },
   "scripts": {
     "lint": "eslint .",
     "deploy": "vercel --prod",
-    "vl:start": "vercel dev",
+    "start": "vercel dev --listen 3100",
     "dev:start": "nodemon index.js",
     "build": "echo 'No build step required for Node.js server'"
-  },
-  "engines": {
-    "node": ">=0.10.0"
   }
 }
