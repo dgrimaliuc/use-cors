@@ -1,5 +1,5 @@
 const config = {
-  debug: process.env.VERCEL_DEBUG,
+  debug: true,
 };
 
 export default config;
