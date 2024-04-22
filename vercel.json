@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "regions": ["sin1"],
+  "regions": ["dub1"],
   "builds": [
     {
       "src": "index.js",
