@@ -1,5 +1,6 @@
 const config = {
-  debug: true,
+  debug: false,
+  local: process.env.LOCAL,
 };
 
-export default config;
+module.exports = config;
