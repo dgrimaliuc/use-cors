@@ -1,7 +1,6 @@
 {
   "version": 2,
   "regions": ["arn1"],
-  "rg": ["cdg1", "dub1"],
   "builds": [
     {
       "src": "index.js",
