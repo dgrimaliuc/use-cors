@@ -39,5 +39,5 @@ export default async function handler(req, res) {
     method: req.method,
     body: new URLSearchParams(req.body),
   });
-  res.status(200).send(await resp.json());
+  res.status(200).send(await resp.text());
 }
