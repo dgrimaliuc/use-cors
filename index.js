@@ -39,5 +39,7 @@ export default async function handler(req, res) {
     method: req.method,
     body: new URLSearchParams(req.body),
   });
-  res.status(200).send(await resp.text());
+  const responseBody = await resp.text();
+  console.log('responseBody', responseBody);
+  res.status(200).send(responseBody);
 }
