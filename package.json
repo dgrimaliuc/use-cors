@@ -4,6 +4,7 @@
   "description": "Use Cors is a reverse proxy which adds CORS headers to the proxied request. Request URL is taken from the path",
   "author": "denis.grimaliuc@gmail.com",
   "dependencies": {
+    "@vercel/node": "^3.0.27",
     "babel-jest": "^29.7.0",
     "cors": "^2.8.5",
     "express": "^4.19.2",

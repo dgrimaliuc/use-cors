@@ -28,7 +28,7 @@ export default async function handler(req, res) {
   const startIndex = req.url.lastIndexOf('http');
   const url = req.url.substring(startIndex);
 
-  console.log('body.favs', req.body);
+  console.log('req.body', req.body);
 
   if (!url || !url.includes('https')) {
     res.status(400).send('Invalid URL');
